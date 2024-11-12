@@ -8,6 +8,7 @@ Currently, You will update the readme and note your features that will be added.
 Large file such as photoshop, audio, music, VFX clips should be kept separatedly.
 
 /Atul
+  - Health Bar System
 
 /Pisit
   - Character Controller 2D Top-down
