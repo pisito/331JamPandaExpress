@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Experimental.Rendering.LWRP;
+//using UnityEngine.Experimental.Rendering.LWRP;
 using TMPro;
 using CodeMonkey.Utils;
 
@@ -26,19 +26,19 @@ public class ItemWorld : MonoBehaviour {
 
     private Item item;
     private SpriteRenderer spriteRenderer;
-    private Light2D light2D;
+    //private Light2D light2D;
     private TextMeshPro textMeshPro;
 
     private void Awake() {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        light2D = transform.Find("Light").GetComponent<Light2D>();
+        //light2D = transform.Find("Light").GetComponent<Light2D>();
         textMeshPro = transform.Find("Text").GetComponent<TextMeshPro>();
     }
 
     public void SetItem(Item item) {
         this.item = item;
         spriteRenderer.sprite = item.GetSprite();
-        light2D.color = item.GetColor();
+        //light2D.color = item.GetColor();
         if (item.amount > 1) {
             textMeshPro.SetText(item.amount.ToString());
         } else {
