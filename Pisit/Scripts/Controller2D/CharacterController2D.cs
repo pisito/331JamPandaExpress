@@ -15,7 +15,6 @@ namespace Pisit.Controllers
         private bool isJumpPressed;
         private bool isGrounded;
 
-        private bool isFlipX = false;
         private Vector3 originalTransformScale;
         private Vector2 previousMoveInput;
 
