@@ -14,6 +14,7 @@ namespace Pisit.Controllers
         private float verticalInput;
         private bool isJumpPressed;
         private bool isGrounded;
+        private bool isSprintedPressed;
 
         private Vector3 originalTransformScale;
         private Vector2 previousMoveInput;
@@ -21,13 +22,15 @@ namespace Pisit.Controllers
         private float multiJumpCount = 0;
 
         #region Parameters
-        public float moveSpeed = 4f;
+        public float moveSpeed = 2f;
         public float sprintSpeedMod = 2.0f;
         public float moveSpeedMod = 1.0f;
         public float jumpPower = 2f;
         public float groundCheckRadius = 0.4f;
         public LayerMask groundLayerMask;
         public float multiJumpMax = 1;
+        public KeyCode sprintKey = KeyCode.LeftShift;
+        public bool canSprint = false;
         #endregion
 
 
@@ -59,7 +62,16 @@ namespace Pisit.Controllers
         private void FixedUpdate()
         {
             Vector2 newVelocity = new Vector2(moveInput.x, 0f);
-            newVelocity *= moveSpeed * moveSpeedMod;
+
+            if(isSprintedPressed)
+            {
+                newVelocity *= (moveSpeed * sprintSpeedMod) * moveSpeedMod;
+            }
+            else
+            {
+                newVelocity *= moveSpeed * moveSpeedMod;
+            }
+            
 
             newVelocity.y = rb.velocity.y;
 
@@ -85,6 +97,14 @@ namespace Pisit.Controllers
             horizontalInput = Input.GetAxisRaw("Horizontal");
             verticalInput = Input.GetAxisRaw("Vertical");
             moveInput = new Vector2(horizontalInput, verticalInput);
+            if(Input.GetKey(sprintKey) && canSprint)
+            {
+                isSprintedPressed = true;
+            }
+            else
+            {
+                isSprintedPressed = false;
+            }
         }
 
         void handleJumpInput()
