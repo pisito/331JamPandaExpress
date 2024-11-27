@@ -18,6 +18,8 @@ namespace Pisit.Controllers
         private Vector3 originalTransformScale;
         private Vector2 previousMoveInput;
 
+        private float multiJumpCount = 0;
+
         #region Parameters
         public float moveSpeed = 4f;
         public float sprintSpeedMod = 2.0f;
@@ -25,6 +27,7 @@ namespace Pisit.Controllers
         public float jumpPower = 2f;
         public float groundCheckRadius = 0.4f;
         public LayerMask groundLayerMask;
+        public float multiJumpMax = 1;
         #endregion
 
 
@@ -45,6 +48,12 @@ namespace Pisit.Controllers
             handleMoveInput();
             handleJumpInput();
             IsGroundCheck();
+
+            if(isGrounded)
+            {
+                multiJumpCount = 0; // Reset
+            }
+
         }
 
         private void FixedUpdate()
@@ -54,11 +63,17 @@ namespace Pisit.Controllers
 
             newVelocity.y = rb.velocity.y;
 
-            if(isJumpPressed & isGrounded )
+            // Handle Jump
+            if (isJumpPressed & multiJumpCount < multiJumpMax)
             {
                 newVelocity.y = -2 * Physics2D.gravity.y * jumpPower;
                 isJumpPressed = false;
                 isGrounded = false;
+                multiJumpCount++;
+            }
+            else
+            {
+                isJumpPressed = false;
             }
 
             rb.velocity = newVelocity;
