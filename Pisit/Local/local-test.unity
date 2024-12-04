@@ -1762,7 +1762,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &164775290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1781,6 +1781,8 @@ MonoBehaviour:
   isFlying: 0
   player: {fileID: 0}
   detectionRadius: 2
+  flyGravityScale: 0
+  walkGravityScale: 1
   useTagPlayer: 1
   playerTag: Player
 --- !u!1 &172940931
@@ -2071,7 +2073,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &176323720
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2090,6 +2092,8 @@ MonoBehaviour:
   isFlying: 0
   player: {fileID: 0}
   detectionRadius: 2
+  flyGravityScale: 0
+  walkGravityScale: 1
   useTagPlayer: 1
   playerTag: Player
 --- !u!1 &220195396
@@ -4112,7 +4116,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &386586419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4131,6 +4135,8 @@ MonoBehaviour:
   isFlying: 0
   player: {fileID: 0}
   detectionRadius: 2
+  flyGravityScale: 0
+  walkGravityScale: 1
   useTagPlayer: 1
   playerTag: Player
 --- !u!1 &422502807
@@ -4497,7 +4503,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &490034742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4516,6 +4522,8 @@ MonoBehaviour:
   isFlying: 0
   player: {fileID: 0}
   detectionRadius: 2
+  flyGravityScale: 0
+  walkGravityScale: 1
   useTagPlayer: 1
   playerTag: Player
 --- !u!1 &507052645
@@ -4929,7 +4937,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: -0.082, y: 1.297, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5257,7 +5265,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &540645835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5276,6 +5284,8 @@ MonoBehaviour:
   isFlying: 0
   player: {fileID: 0}
   detectionRadius: 2
+  flyGravityScale: 0
+  walkGravityScale: 1
   useTagPlayer: 1
   playerTag: Player
 --- !u!1 &571199599
@@ -6093,6 +6103,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 240520157}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &631634454
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 631634455}
+  m_Layer: 0
+  m_Name: WaypointA2
+  m_TagString: Untagged
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &631634455
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 631634454}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.895, y: -1.27, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 842141224}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &671591590
 GameObject:
@@ -7992,6 +8033,39 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &842141223
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 842141224}
+  m_Layer: 0
+  m_Name: WayPoints
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &842141224
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 842141223}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1007805520}
+  - {fileID: 631634455}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &842516741
 GameObject:
   m_ObjectHideFlags: 0
@@ -8548,7 +8622,7 @@ Transform:
   m_GameObject: {fileID: 918788391}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.082, y: 1.297, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9028,6 +9102,37 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1007805519
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1007805520}
+  m_Layer: 0
+  m_Name: WaypointA1
+  m_TagString: Untagged
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1007805520
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1007805519}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.859, y: -1.27, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 842141224}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1021765708
 GameObject:
@@ -13278,7 +13383,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &1699289016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13297,6 +13402,8 @@ MonoBehaviour:
   isFlying: 0
   player: {fileID: 0}
   detectionRadius: 2
+  flyGravityScale: 0
+  walkGravityScale: 1
   useTagPlayer: 1
   playerTag: Player
 --- !u!1 &1699586805
@@ -15497,7 +15604,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &1985192074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15516,6 +15623,8 @@ MonoBehaviour:
   isFlying: 0
   player: {fileID: 0}
   detectionRadius: 2
+  flyGravityScale: 0
+  walkGravityScale: 1
   useTagPlayer: 1
   playerTag: Player
 --- !u!1 &2000550441
@@ -16290,7 +16399,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &2092305095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16309,6 +16418,8 @@ MonoBehaviour:
   isFlying: 0
   player: {fileID: 0}
   detectionRadius: 2
+  flyGravityScale: 0
+  walkGravityScale: 1
   useTagPlayer: 1
   playerTag: Player
 --- !u!1 &2093091158
@@ -16926,6 +17037,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8175213411928629842, guid: 319e4a3fbfb564240bd6e16991a16caa, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.082
+      objectReference: {fileID: 0}
+    - target: {fileID: 8175213411928629842, guid: 319e4a3fbfb564240bd6e16991a16caa, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.297
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16956,3 +17075,4 @@ SceneRoots:
   - {fileID: 1787447531}
   - {fileID: 41371222}
   - {fileID: 1744464749}
+  - {fileID: 842141224}

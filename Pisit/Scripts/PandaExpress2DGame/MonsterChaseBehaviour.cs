@@ -29,11 +29,12 @@ public class MonsterChaseBehaviour : MonoBehaviour
     public bool useTagPlayer = true;
     public string playerTag = "Player";
 
+    public Transform targetChase;
+
+
     // Start is called before the first frame update
     private void Start()
     {
-        
-
         if (useTagPlayer)
         {
             GameObject PlayerObject = GameObject.FindGameObjectWithTag(playerTag);
@@ -58,6 +59,7 @@ public class MonsterChaseBehaviour : MonoBehaviour
         {
             transform.position = patrolPoints[0].position;
         }
+
     }
 
     // Update is called once per frame
@@ -67,7 +69,6 @@ public class MonsterChaseBehaviour : MonoBehaviour
         {
             DetectPlayer();
         }
-
         
     }
 
@@ -75,9 +76,7 @@ public class MonsterChaseBehaviour : MonoBehaviour
     {
         if (isChasing)
         {
-            // reset to remove residue velocity
-            rb.velocity = Vector2.zero;
-
+            targetChase = player;
             rb.gravityScale = isFlying ? flyGravityScale : walkGravityScale;
 
             if (isFlying)
@@ -92,6 +91,7 @@ public class MonsterChaseBehaviour : MonoBehaviour
         }
         else
         {
+            targetChase = null;
             Patrol();
         }
     }
@@ -107,11 +107,15 @@ public class MonsterChaseBehaviour : MonoBehaviour
         if (patrolPoints.Length == 0) return;
 
         Transform targetPoint = patrolPoints[currentPatrolIndex];
+        targetChase = targetPoint;
+
         Vector2 direction = ((Vector2)targetPoint.position - rb.position).normalized;
         rb.velocity = Vector2.Lerp(rb.velocity, direction * moveSpeed, Time.deltaTime * 5f);
 
+
         if (Vector2.Distance(rb.position, targetPoint.position) < 0.1f)
         {
+            // change target
             currentPatrolIndex = (currentPatrolIndex + 1) % patrolPoints.Length;
         }
     }
@@ -132,11 +136,15 @@ public class MonsterChaseBehaviour : MonoBehaviour
         rb.velocity = direction * moveSpeed;
     }
 
+    #region Gizmo
+
     private void OnDrawGizmosSelected()
     {
         // Visualization for detection radius
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, detectionRadius);
     }
+
+    #endregion
 
 }
